@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.javatpoint.dao.UserDao,com.javatpoint.bean.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Upload page</title>
+</head>
+<body>
+
+<form action="addproduct.jsp" method="post" enctype="multipart/form-data" >
+<p>產品名稱 : <input type="text" name="libelle" id="libelle" ></p>
+<p>描述 : <input type="text" name="desc" id="desc" ></p>
+<p>價格 : <input type="text" name="prix" id="prix" ></p>
+<p>庫存 : <input type="text" name="qte" id="qte" ></p>
+<p>圖片 : <input type="file" name="file" id="file" ></p>
+<p><input type="submit" value="上傳"></p>
+
+</form>
+<a href="ArticleList.jsp" >商品列表</a>
+</body>
+</html>
