@@ -35,12 +35,13 @@ public class ArticleDao
 		{
 			Connection con = getConnection();
 			PreparedStatement ps = con
-					.prepareStatement("insert into article(libelle,description,prix,qte,img) values(?,?,?,?,?)");
+					.prepareStatement("insert into article(libelle,description,prix,category,qte,img) values(?,?,?,?,?,?)");
 			ps.setString(1, a.getLibelle());
 			ps.setString(2, a.getDesc());
 			ps.setDouble(3, a.getPrix());
-			ps.setInt(4, a.getQte());
-			ps.setString(5, a.getImg());
+			ps.setString(4, a.getCate());
+			ps.setInt(5, a.getQte());
+			ps.setString(6, a.getImg());
 			// status = ps.executeUpdate();
 			ps.executeUpdate();
 			result = true;
@@ -54,7 +55,24 @@ public class ArticleDao
 		return result;
 	}
 
-	
+	public static int delete(Article a)
+	{
+		int status = 0;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("delete from article where idArticle=?");
+			ps.setInt(1, a.getIdArticle());
+			status = ps.executeUpdate();
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return status;
+	}
 	/* public boolean remove(int idArticle) { try { String req =
 	  "DELETE FROM article " + "WHERE idarticle = " + idArticle;
 	  
@@ -120,6 +138,7 @@ public class ArticleDao
 				a.setLibelle(rs.getString("libelle"));
 				a.setDesc(rs.getString("description"));
 				a.setPrix(rs.getDouble("prix"));
+				a.setCate(rs.getString("category"));
 				a.setQte(rs.getInt("qte"));
 				a.setImg(rs.getString("img"));
 				list.add(a);

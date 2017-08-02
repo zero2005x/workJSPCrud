@@ -32,7 +32,6 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">商品種類 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="Fileform.jsp">上架</a></li>
 							<li><a href="#">男裝</a></li>
 							<li><a href="#">女裝</a></li>
 							<li class="divider"></li>
@@ -46,6 +45,7 @@
 					<li><a href="promotion.jsp">好物推薦</a></li>
 					<li><a href="messageboard.jsp">留言板</a></li>
 					<li><a href="shoppingcart.jsp">購物車</a></li>
+					<li><a href="manager.jsp">後臺管理</a></li>
 				</ul>
 				<form class="navbar-form navbar-left" role="search">
                       <div class="form-group">

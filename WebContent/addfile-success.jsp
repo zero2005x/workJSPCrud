@@ -9,8 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-上傳成功。
+<jsp:include page="header.jsp"></jsp:include>
+<p>上傳成功。</p>
 <jsp:include page="Fileform.jsp"></jsp:include>
+
+
 </body>
 </html>

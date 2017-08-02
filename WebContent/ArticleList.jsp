@@ -19,12 +19,12 @@
 %>
 
 <table border="1" width="90%">
-<tr><th>Id</th><th>商品名稱</th><th>描述</th><th>價格</th><th>庫存</th><th>圖片</th><th>修改</th><th>刪除</th></tr>
+<tr><th>Id</th><th>商品名稱</th><th>描述</th><th>價格</th><th>種類</th><th>庫存</th><th>圖片</th><th>修改</th><th>刪除</th></tr>
 <c:forEach items="${list}" var="a">
-	<tr><td>${a.getIdArticle()}</td><td>${a.getLibelle()}</td><td>${a.getDesc()}</td><td>${a.getPrix()}</td><td>${a.getQte()}</td><td><img src="${a.getImg()}"></td><td><a href="editArticleform.jsp?id=${a.getIdArticle()}">Edit</a></td><td><a href="delArticle.jsp?id=${a.getIdArticle()}">Delete</a></td></tr>
+	<tr><td>${a.getIdArticle()}</td><td>${a.getLibelle()}</td><td>${a.getDesc()}</td><td>${a.getPrix()}</td><td>${a.getCate()}</td><td>${a.getQte()}</td><td><img src="${a.getImg()}"></td><td><a href="editArticleform.jsp?idArticle=${a.getIdArticle()}">Edit</a></td><td><a href="delArticle.jsp?idArticle=${a.getIdArticle()}">Delete</a></td></tr>
 </c:forEach>
 </table>
-<br/><a href="Fileform.jsp">上架</a>
+<br/><a href="addfileform.jsp">上架</a>
 
 </body>
 </html>

@@ -12,12 +12,21 @@
 <title>Upload page</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+
 <c:if test="${user.isValid() }">
 <form action="addproduct.jsp" method="post" enctype="multipart/form-data" >
 <p>產品名稱 : <input type="text" name="libelle" id="libelle" ></p>
 <p>描述 : <input type="text" name="desc" id="desc" ></p>
 <p>價格 : <input type="text" name="prix" id="prix" ></p>
+<p>種類 : <select name="category" id="category" style="width:155px">
+			<option>BOSTON</option>
+			<option>TOTE</option>
+			<option>MESSENGER</option>
+			<option>SHOULDER</option>
+			<option>WAIST</option>
+			<option>OTHER</option>
+</select>
+</p>
 <p>庫存 : <input type="text" name="qte" id="qte" ></p>
 <p>圖片 : <input type="file" name="file" id="file" ></p>
 <p><input type="submit" value="上傳"></p>

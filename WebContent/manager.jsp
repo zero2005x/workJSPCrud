@@ -10,5 +10,6 @@
 <jsp:include page="header.jsp" />
 <p><a href="viewusers.jsp">會員列表</a></p>
 <p><a href="ArticleList.jsp">商品列表</a></p>
+<p><a href="addfileform.jsp">上架</a></p>
 </body>
 </html>

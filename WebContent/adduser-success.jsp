@@ -8,9 +8,8 @@
 <title>Add User Success</title>
 </head>
 <body>
-
+<jsp:include page="header.jsp"></jsp:include>
 <p>資料儲存成功!</p>
-
 <jsp:include page="userform.jsp"></jsp:include>
 
 </body>

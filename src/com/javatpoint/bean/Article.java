@@ -7,6 +7,7 @@ public class Article
 	    private String libelle ;
 	    private String desc ;
 	    private double prix ; 
+	    private String category;
 	    private String img ;
 	    private int qte ;
 
@@ -14,11 +15,12 @@ public class Article
 	    {
 	    }
 	    //需傳入4個形參產品名稱,描述,價格,圖片,數量
-	    public Article(String libelle, String desc, double prix, int qte, String img)
+	    public Article(String libelle, String desc, double prix, String category, int qte, String img)
 	    {
 	        this.libelle = libelle;
 	        this.desc = desc;
 	        this.prix = prix;
+	        this.category = category;
 	        this.img = img;
 	        this.qte = qte;
 	    }
@@ -26,12 +28,13 @@ public class Article
 	    
 	    
 	    //需傳入7個形參:編號,產品名稱,描述,價格,圖片,數量
-	    public Article(int idArticle, String libelle, String desc, double prix, int qte, String img)
+	    public Article(int idArticle, String libelle, String desc, double prix, String category, int qte, String img)
 	    {
 	        this.idArticle = idArticle;
 	        this.libelle = libelle;
 	        this.desc = desc;
 	        this.prix = prix;
+	        this.category = category;
 	        this.img = img;
 	        this.qte = qte;
 	    }
@@ -52,6 +55,10 @@ public class Article
 	    public double getPrix()
 	    {
 	        return prix;
+	    }
+	    public String getCate()
+	    {
+	    	return category;
 	    }
 	    public String getImg()
 	    {
@@ -76,6 +83,10 @@ public class Article
 	    public void setPrix(double prix)
 	    {
 	        this.prix = prix;
+	    }
+	    public void setCate(String category)
+	    {
+	    	this.category = category;
 	    }
 	    public void setImg(String img)
 	    {
