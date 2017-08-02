@@ -5,13 +5,15 @@
 <%
     request.setCharacterEncoding("UTF-8");
 %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Upload page</title>
 </head>
 <body>
-
+<jsp:include page="header.jsp" />
+<c:if test="${user.isValid() }">
 <form action="addproduct.jsp" method="post" enctype="multipart/form-data" >
 <p>產品名稱 : <input type="text" name="libelle" id="libelle" ></p>
 <p>描述 : <input type="text" name="desc" id="desc" ></p>
@@ -19,8 +21,14 @@
 <p>庫存 : <input type="text" name="qte" id="qte" ></p>
 <p>圖片 : <input type="file" name="file" id="file" ></p>
 <p><input type="submit" value="上傳"></p>
-
 </form>
 <a href="ArticleList.jsp" >商品列表</a>
+</c:if>
+
+<c:if test="${not user.isValid() }">
+<p>請登入會員。</p>
+<a href="login.jsp" >會員登入</a>
+<a href="adduserform.jsp" >註冊會員</a>
+</c:if>
 </body>
 </html>

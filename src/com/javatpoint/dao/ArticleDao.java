@@ -44,6 +44,8 @@ public class ArticleDao
 			// status = ps.executeUpdate();
 			ps.executeUpdate();
 			result = true;
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{
@@ -122,6 +124,9 @@ public class ArticleDao
 				a.setImg(rs.getString("img"));
 				list.add(a);
 			}
+			rs.close();
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{

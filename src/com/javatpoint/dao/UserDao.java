@@ -39,7 +39,8 @@ public class UserDao
 			ps.setString(4, u.getSex());
 			ps.setString(5, u.getCountry());
 			status = ps.executeUpdate();
-
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{
@@ -64,6 +65,8 @@ public class UserDao
 			ps.setString(5, u.getCountry());
 			ps.setInt(6, u.getId());
 			status = ps.executeUpdate();
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{
@@ -81,6 +84,8 @@ public class UserDao
 			PreparedStatement ps = con.prepareStatement("delete from register where id=?");
 			ps.setInt(1, u.getId());
 			status = ps.executeUpdate();
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{
@@ -110,6 +115,8 @@ public class UserDao
 				u.setCountry(rs.getString("country"));
 				list.add(u);
 			}
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{
@@ -137,6 +144,8 @@ public class UserDao
 				u.setSex(rs.getString("sex"));
 				u.setCountry(rs.getString("country"));
 			}
+			ps.close();
+			con.close();
 		}
 		catch (Exception e)
 		{

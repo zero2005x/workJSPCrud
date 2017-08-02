@@ -1,3 +1,7 @@
+<%@page import="com.javatpoint.dao.UserDao,com.javatpoint.bean.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 
 <html>
@@ -6,10 +10,8 @@
 <title>View Users</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 
-<%@page import="com.javatpoint.dao.UserDao,com.javatpoint.bean.*,java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <h1>會員列表</h1>
 
 <%

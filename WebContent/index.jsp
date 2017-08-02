@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -15,6 +16,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	
 	<div id="photoCarousel" class="container coverflow carousel slide "
 		data-ride="carousel">
 		<!-- Indicators 瀏覽控制 -->

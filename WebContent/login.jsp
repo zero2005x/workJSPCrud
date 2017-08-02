@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.javatpoint.dao.UserDao,com.javatpoint.bean.*,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:useBean id="user" class="com.javatpoint.bean.User" scope="session"></jsp:useBean>
+<jsp:setProperty property="*" name="user"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
     request.setCharacterEncoding("UTF-8");
 %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,6 +36,7 @@ function check()
 
 </script>
 <body>
+<jsp:include page="header.jsp" />
 
 <form action="check.jsp" method="post" onsubmit="return check();">
 <p>帳號 : <input type="text" name="name" id="name"></p>

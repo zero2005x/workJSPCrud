@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:useBean id="user" class="com.javatpoint.bean.User" scope="session"></jsp:useBean>
 <jsp:setProperty property="*" name="user"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -50,12 +52,13 @@
                         <input type="text" class="form-control" placeholder="Search">
                       </div>
                       <button type="submit" class="btn btn-default">搜尋</button>
+                      <c:if test="${user.isValid() }" >
                       <div>
                       	<span>帳號: <%=user.getName() %></span>
                       	<span>密碼: <%=user.getPassword() %></span>
                       	<span><a href="logout.jsp">登出</a></span>
-               
-                      	</div>
+                      </div>
+                      </c:if>
                     </form>
 			</div>
 		</div>
