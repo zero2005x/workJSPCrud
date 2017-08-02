@@ -22,7 +22,6 @@
 <p>圖片 : <input type="file" name="file" id="file" ></p>
 <p><input type="submit" value="上傳"></p>
 </form>
-<a href="ArticleList.jsp" >商品列表</a>
 </c:if>
 
 <c:if test="${not user.isValid() }">

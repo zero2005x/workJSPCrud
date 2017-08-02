@@ -52,7 +52,6 @@ function check()
 
 </script>
 <body>
-<a href="viewusers.jsp">查詢紀錄</a><br/>
 
 <h1>新增會員</h1>
 <form action="adduser.jsp" method="post" onsubmit="return check();" name="userform">
