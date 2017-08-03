@@ -55,6 +55,33 @@ public class ArticleDao
 		return result;
 	}
 
+	public boolean update(Article a)
+	{
+		boolean result = false;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con
+					.prepareStatement("update article set libelle=?,description=?,prix=?,category=?,qte=?,img=? where idArticle=?");
+			ps.setString(1, a.getLibelle());
+			ps.setString(2, a.getDesc());
+			ps.setDouble(3, a.getPrix());
+			ps.setString(4, a.getCate());
+			ps.setInt(5, a.getQte());
+			ps.setString(6, a.getImg());
+			ps.setInt(7, a.getIdArticle());
+			ps.executeUpdate();
+			result = true;
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return result;
+	}
+	
 	public static int delete(Article a)
 	{
 		int status = 0;
@@ -154,6 +181,36 @@ public class ArticleDao
 		return list;
 	}
 
+	public static Article getArticleById(int idArticle)
+	{
+		Article a = null;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from article where idArticle=?");
+			ps.setInt(1, idArticle);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				a = new Article();
+				a.setIdArticle(rs.getInt("idarticle"));
+				a.setLibelle(rs.getString("libelle"));
+				a.setDesc(rs.getString("description"));
+				a.setPrix(rs.getDouble("prix"));
+				a.setCate(rs.getString("category"));
+				a.setQte(rs.getInt("qte"));
+				a.setImg(rs.getString("img"));
+			}
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return a;
+	}
+	
 	/*
 	 * // henry 搜尋所有產品(方法) 並回傳 Vector資料型態 搜尋功能使用 (帶入搜尋關鍵字) public Vector<Article>
 	 * findAll(String key) { String req = "SELECT* " +

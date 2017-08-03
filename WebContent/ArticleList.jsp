@@ -9,7 +9,7 @@
 <title>View Users</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+
 <h1>商品列表</h1>
 
 <%

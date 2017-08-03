@@ -32,18 +32,17 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">商品種類 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">男裝</a></li>
-							<li><a href="#">女裝</a></li>
+							<li><a href="#">BOSTON</a></li>
+							<li><a href="#">TOTE</a></li>
 							<li class="divider"></li>
-							<li><a href="#">戒指</a></li>
-							<li><a href="#">項鍊/手鍊</a></li>
-							<li><a href="#">耳環</a></li>
+							<li><a href="#">MESSENGER</a></li>
+							<li><a href="#">SHOULDER</a></li>
+							<li><a href="#">WAIST</a></li>
 							<li class="divider"></li>
-							<li><a href="#">褲襪</a></li>
-							<li><a href="#">短襪</a></li>
+							<li><a href="#">OTHER</a></li>
 						</ul></li>
 					<li><a href="promotion.jsp">好物推薦</a></li>
-					<li><a href="messageboard.jsp">留言板</a></li>
+					<li><a href="contact.jsp">聯絡我們</a></li>
 					<li><a href="shoppingcart.jsp">購物車</a></li>
 					<li><a href="manager.jsp">後臺管理</a></li>
 				</ul>
