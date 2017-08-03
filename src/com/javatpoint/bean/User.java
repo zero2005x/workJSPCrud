@@ -1,6 +1,5 @@
 package com.javatpoint.bean;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import com.javatpoint.dao.UserDao;

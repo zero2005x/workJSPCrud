@@ -1,5 +1,4 @@
 package com.javatpoint.bean;
-import javax.servlet.*;
 
 public class Article 
 {

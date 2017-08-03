@@ -10,8 +10,9 @@
 <body>
 <jsp:include page="header.jsp" />
 <c:if test="${user.isValid() }">
-<p><a href="viewusers.jsp">會員列表</a></p>
-<p><a href="ArticleListPage.jsp">商品列表</a></p>
+<p><a href="viewusers.jsp">會員</a></p>
+<p><a href="ArticleListPage.jsp">商品</a></p>
+<p><a href="MsgListPage.jsp">訊息</a></p>
 <p><a href="addfileform.jsp">上架</a></p>
 </c:if>
 
