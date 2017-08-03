@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-登入成功。
+<jsp:include page="header.jsp"></jsp:include>
+<p>刪除失敗。</p>
+<jsp:include page="ArticleList.jsp"></jsp:include>
 </body>
 </html>

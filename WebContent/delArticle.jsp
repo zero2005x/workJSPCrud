@@ -3,6 +3,6 @@
 <jsp:setProperty property="*" name="a"/>
 
 <%
-ArticleDao.delete(a);
-response.sendRedirect("ArticleList.jsp");
+	ArticleDao.delete(a);
+	response.sendRedirect("delArticle-success.jsp");
 %>
