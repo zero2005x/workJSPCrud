@@ -154,5 +154,28 @@ public class UserDao
 		return u;
 	}
 	
-	
+	public static List<User> getAllUsersByPage(int page, int pagesize)
+	{
+		List<User> list = new ArrayList<User>();
+		int mypage = page;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from register limit ?,?");
+			ps.setInt(1, mypage);
+			ps.setInt(2, pagesize);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				list.add(new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+			}
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return list;
+	}
 }

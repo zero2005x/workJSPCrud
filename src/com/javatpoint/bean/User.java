@@ -9,16 +9,17 @@ public class User
 	private int id;
 	private String name, password, email, sex, country;
 
-	/*public User() {}
-	public User(String name, String password, String email, String sex, String country)
+	public User() {}
+	public User(int id, String name, String password, String email, String sex, String country)
 	{
+		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.email = email;
 		this.sex = sex;
 		this.country = country;
 	}
-	*/
+	
 	public int getId()
 	{
 		return id;

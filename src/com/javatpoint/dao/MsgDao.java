@@ -125,6 +125,4 @@ public class MsgDao
 		}
 		return m;
 	}
-	
-	
 }
