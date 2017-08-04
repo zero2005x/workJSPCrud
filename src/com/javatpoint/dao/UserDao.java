@@ -154,6 +154,35 @@ public class UserDao
 		return u;
 	}
 	
+	public static User getRecordByName(String name)
+	{
+		User u = null;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from register where name=?");
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				u = new User();
+				u.setId(rs.getInt("id"));
+				u.setName(rs.getString("name"));
+				u.setPassword(rs.getString("password"));
+				u.setEmail(rs.getString("email"));
+				u.setSex(rs.getString("sex"));
+				u.setCountry(rs.getString("country"));
+			}
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return u;
+	}
+	
 	public static List<User> getAllUsersByPage(int page, int pagesize)
 	{
 		List<User> list = new ArrayList<User>();

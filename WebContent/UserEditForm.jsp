@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.javatpoint.dao.*,com.javatpoint.bean.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:useBean id="user" class="com.javatpoint.bean.User" scope="session"></jsp:useBean>
+<jsp:setProperty property="*" name="user"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Edit Form</title>
+<title>Insert title here</title>
 </head>
-<body>
-<%@page import="com.javatpoint.dao.UserDao,com.javatpoint.bean.User"%>
-
 <%
-String id=request.getParameter("id");
-User u=UserDao.getRecordById(Integer.parseInt(id));
+	String name=user.getName();
+	User u=UserDao.getRecordByName(name);
 %>
-
+<body>
 <h1>會員修改</h1>
-<form action="edituser.jsp" method="post">
+<form action="UserEditUser.jsp" method="post">
 <input type="hidden" name="id" value="<%=u.getId() %>"/>
 <table>
 <tr><td>姓名 :</td><td><input type="text" name="name" value="<%= u.getName()%>"/></td></tr>
@@ -33,6 +33,5 @@ User u=UserDao.getRecordById(Integer.parseInt(id));
 <tr><td colspan="2"><input type="submit" value="修改"/></td></tr>
 </table>
 </form>
-
 </body>
 </html>

@@ -211,8 +211,54 @@ public class ArticleDao
 		return a;
 	}
 	
+	public static List<Article> getAllArticleByPage(int page, int pagesize)
+	{
+		List<Article> list = new ArrayList<Article>();
+		int mypage = page;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from article limit ?,?");
+			ps.setInt(1, mypage);
+			ps.setInt(2, pagesize);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				list.add(new Article(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getInt(6),rs.getString(7)));
+			}
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return list;
+	}
+	
+	public static int ArticleSize()
+	{
+		int result = 0;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select count(*) from article");
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			result = rs.getInt(1);
+			rs.close();
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return result;
+	}
+	
 	/*
-	 * // henry 搜尋所有產品(方法) 並回傳 Vector資料型態 搜尋功能使用 (帶入搜尋關鍵字) public Vector<Article>
+	 * //  搜尋所有產品(方法) 並回傳 Vector資料型態 搜尋功能使用 (帶入搜尋關鍵字) public Vector<Article>
 	 * findAll(String key) { String req = "SELECT* " +
 	 * " FROM article WHERE libelle like '%" + key + "%'";
 	 * 
@@ -235,7 +281,7 @@ public class ArticleDao
 	 * 
 	 * return null; }
 	 * 
-	 * // henry 搜尋產品(隨機) 帶入隨機數值 public Vector<Article> findRandom(int nbMax) {
+	 * //  搜尋產品(隨機) 帶入隨機數值 public Vector<Article> findRandom(int nbMax) {
 	 * String req = "SELECT* " + " FROM article ORDER BY RAND() LIMIT " + nbMax;
 	 * 
 	 * Vector<Article> vect = null;

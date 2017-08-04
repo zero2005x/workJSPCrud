@@ -23,12 +23,12 @@
 				pagesize = Integer.valueOf(strPage)*10-1;
 			}
 		}
-	List<User> list=UserDao.getAllUsersByPage(pagenum, pagesize);
-	request.setCharacterEncoding("UTF-8");
-	request.setAttribute("list",list);
-	
-	int TotalNum = UserDao.UserSize();
-	int TotalPage = (int)Math.ceil(TotalNum / (double)10);
+		List<User> list=UserDao.getAllUsersByPage(pagenum, pagesize);
+		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("list",list);
+		
+		int TotalNum = UserDao.UserSize();
+		int TotalPage = (int)Math.ceil(TotalNum / (double)10);
 %>
 <html>
 <head>
@@ -45,7 +45,7 @@
   <table class="table">
     <tr><th>Id</th><th>姓名</th><th>密碼</th><th>電子郵件</th><th>性別</th><th>城市</th><th>修改</th><th>刪除</th></tr>
 	<c:forEach items="${list}" var="u">
-	<tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getPassword()}</td><td>${u.getEmail()}</td><td>${u.getSex()}</td><td>${u.getCountry()}</td><td><a href="editform.jsp?id=${u.getId()}">Edit</a></td><td><a href="deleteuser.jsp?id=${u.getId()}">Delete</a></td></tr>
+	<tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getPassword()}</td><td>${u.getEmail()}</td><td>${u.getSex()}</td><td>${u.getCountry()}</td><td><a href="EditUserPage.jsp?id=${u.getId()}">Edit</a></td><td><a href="deleteuser.jsp?id=${u.getId()}">Delete</a></td></tr>
 	</c:forEach>
   </table>
 </div>
@@ -56,7 +56,7 @@
 				for(int i=1;i<=TotalPage;i++)
 				{
 					%>
-					<option value="<%=i%>" <%if(Integer.valueOf(strPage) == i) out.println("selected"); %>>第<%=i%>頁</option>
+					<option value="<%=i%>" <%if(Integer.valueOf(strPage) == i) out.println("selected"); //當onchange="pageform.submit()"存在才有作用%>>第<%=i%>頁</option>
 					<% 
 				}
 			%>
