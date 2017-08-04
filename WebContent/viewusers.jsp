@@ -26,6 +26,9 @@
 	List<User> list=UserDao.getAllUsersByPage(pagenum, pagesize);
 	request.setCharacterEncoding("UTF-8");
 	request.setAttribute("list",list);
+	
+	int TotalNum = UserDao.UserSize();
+	int TotalPage = (int)Math.ceil(TotalNum / (double)10);
 %>
 <html>
 <head>
@@ -50,7 +53,7 @@
 	<form action="viewusers.jsp" id="pageform" method="get">
 		<select name="page" id="page" onchange="pageform.submit()">
 			<%
-				for(int i=1;i<5;i++)
+				for(int i=1;i<=TotalPage;i++)
 				{
 					%>
 					<option value="<%=i%>" <%if(Integer.valueOf(strPage) == i) out.println("selected"); %>>第<%=i%>頁</option>
@@ -64,7 +67,7 @@
 		<table>
 		<tr>
 		<%
-			for(int j=1;j<=5;j++)
+			for(int j=1;j<=TotalPage;j++)
 			{
 				%>
 					<td <%if(j == Integer.valueOf(strPage)){%>bgcolor="#FF3300"<%} %>><a href="viewusers.jsp?page=<%=j %>">&nbsp<%=j %>&nbsp</a></td>

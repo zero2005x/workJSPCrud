@@ -178,4 +178,25 @@ public class UserDao
 		}
 		return list;
 	}
+	
+	public static int UserSize()
+	{
+		int result = 0;
+		try
+		{
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select count(*) from register");
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			result = rs.getInt(1);
+			rs.close();
+			ps.close();
+			con.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return result;
+	}
 }
