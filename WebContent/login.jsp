@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/index_style.css" rel='stylesheet' type='text/css' />
 <title>Login page</title>
 </head>
 <script type="text/javascript">
@@ -37,12 +38,31 @@ function check()
 </script>
 <body>
 <jsp:include page="header.jsp" />
-
-<form action="check.jsp" method="post" onsubmit="return check();">
-<p>帳號 : <input type="text" name="name" id="name"></p>
-<p>密碼 : <input type="password" name="password" id="password"></p>
-<p><input type="submit" value="登入"></p>
-<a href="adduserform.jsp">註冊會員</a>
-</form>
+<div class="main">
+	<div class="login-form">
+	
+		<h1>會員登入</h1>
+		
+			<div class="head">
+		<img src="images/user.png" alt=""/>
+		</div>
+		
+	<form action="check.jsp" method="post" onsubmit="return check();">
+		<p>帳號 : <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}" name="name" id="name"></p>
+		
+		<p>密碼 : <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" name="password" id="password"></p>
+		
+		<div class="submit">
+			<p><input type="submit" onclick="myFunction()" value="登入"></p>
+		</div>
+		
+			<p><a href="#">Forgot Password ?</a></p>
+				
+			<p><a href="adduserform.jsp">註冊會員</a></p>
+	
+	</form>
+</div>
+	</div>
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='UTF-8'></script></div>
 </body>
 </html>
