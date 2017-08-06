@@ -4,16 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="css/manager_style.css" rel='stylesheet' type='text/css' />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
 <c:if test="${user.isValid() }">
-<p><a href="viewusers.jsp">會員</a></p>
-<p><a href="ArticleListPage.jsp">商品</a></p>
-<p><a href="MsgListPage.jsp">訊息</a></p>
-<p><a href="addfileform.jsp">上架</a></p>
+ <div class="col-md-3 col-sm-3 col-xs-6"><p><a class="well top-block" href="viewusers.jsp">會員  <i class="glyphicon glyphicon-star green"></i></a></p></div>
+ <div class="col-md-3 col-sm-3 col-xs-6"><p><a class="well top-block" href="ArticleListPage.jsp">商品  <i class="glyphicon glyphicon-star green"></i></a></p></div>
+ <div class="col-md-3 col-sm-3 col-xs-6"><p><a class="well top-block" href="MsgListPage.jsp">訊息  <i class="glyphicon glyphicon-star green"></i></a></p></div>
+ <div class="col-md-3 col-sm-3 col-xs-6"><p><a class="well top-block" href="addfileform.jsp">上架  <i class="glyphicon glyphicon-star green"></i></a></p></div>
 </c:if>
 
 <c:if test="${not user.isValid() }">
